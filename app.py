@@ -4,8 +4,8 @@ import re
 from joblegitchecker2 import JobLegitimacyChecker
 
 # Configure Generative AI
-def setup_generative_ai(api_key):
-    genai.configure(api_key=api_key)
+def setup_generative_ai(GOOGLE_API_KEY):
+    genai.configure(GOOGLE_API_KEY = GOOGLE_API_KEY)
     model = genai.GenerativeModel('gemini-1.5-pro-latest')
     return model 
 
