@@ -2,12 +2,19 @@ import streamlit as st
 import google.generativeai as genai
 import re
 from joblegitchecker2 import JobLegitimacyChecker
+import os
+from dotenv import load_dotenv
+
 
 # Configure Generative AI
-def setup_generative_ai(GOOGLE_API_KEY):
-    genai.configure(GOOGLE_API_KEY = GOOGLE_API_KEY)
-    model = genai.GenerativeModel('gemini-1.5-pro-latest')
-    return model 
+# Load environment variables
+load_dotenv()
+
+
+# Configure Generative AI (corrected)
+def setup_generative_ai():
+    genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))  # Correct parameter name
+    return genai.GenerativeModel("gemini-1.5-pro-latest")
 
 # Configure page settings
 st.set_page_config(
